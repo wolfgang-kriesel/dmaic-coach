@@ -1,0 +1,32 @@
+[project]
+name = "dmaic-coach"
+version = "0.1.0"
+description = "RAG-backed Six Sigma DMAIC tutor that guides a learner, simulates a stakeholder, and grades the Measure-phase analysis — grounded in retrieved methodology and verified statistics over MCP."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Wolfgang" }]
+keywords = ["six-sigma", "lean", "rag", "mcp", "ai-agents", "llm"]
+dependencies = [
+  "mcp>=1.0.0",
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "pyyaml>=6.0",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+fastembed = ["fastembed>=0.3"]
+anthropic = ["anthropic>=0.39"]
+openai = ["openai>=1.40"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+dmaic-coach = "dmaic_coach.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
