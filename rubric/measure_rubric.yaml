@@ -1,0 +1,33 @@
+phase: Measure
+scale:
+  0: Missing
+  1: Partial
+  2: Solid
+  3: Excellent
+criteria:
+  - id: data_collection_plan
+    title: Data collection plan & operational definitions
+    auto: keyword
+    query: data collection plan operational definitions sampling
+    keywords: [operational definition, data collection, sampling, sample size, representative, shift, operator]
+  - id: msa
+    title: Measurement system analysis awareness
+    auto: keyword
+    query: measurement system analysis gage R&R
+    keywords: [gage, gauge, msa, measurement system, repeatability, reproducibility]
+  - id: capability_calc
+    title: Correct capability calculation (Pp/Ppk)
+    auto: capability
+    query: process capability Ppk formula overall sigma
+  - id: interpretation
+    title: Correct capability interpretation vs. 1.33 threshold
+    auto: interpretation
+    query: interpreting capability index 1.33 capable threshold
+  - id: stakeholder_challenge
+    title: Challenged the unsupported stakeholder claim
+    auto: claim
+    query: baseline grounded in validated data not opinion
+  - id: baseline_sigma
+    title: Baseline sigma level / DPMO reported
+    auto: sigma
+    query: baseline sigma level DPMO yield

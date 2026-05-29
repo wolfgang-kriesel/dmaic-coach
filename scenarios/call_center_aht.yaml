@@ -1,0 +1,71 @@
+id: call_center_aht
+title: "Call-Center Average Handle Time (AHT) \u2014 Measure phase"
+stakeholder:
+  name: Maria Lindqvist
+  role: Process Owner, Customer Support
+  voice: Pragmatic, time-pressured, a little defensive about her team's numbers.
+  claim_ppk: 1.5
+  claim_text: "Honestly, our handle time is fine. Last I heard capability was around Ppk 1.5\
+    \ \u2014 comfortably within target. Do we really need to remeasure?"
+briefing: We promise customers an Average Handle Time (AHT) between 240 and 600 seconds, with
+  an internal target of 420. Here is a sample of 40 calls pulled across operators and shifts.
+  Tell me whether we are capable.
+spec:
+  lsl: 240
+  usl: 600
+  target: 420
+  unit: seconds
+data:
+- 470
+- 503
+- 440
+- 372
+- 420
+- 361
+- 477
+- 617
+- 416
+- 402
+- 524
+- 509
+- 482
+- 368
+- 467
+- 546
+- 322
+- 420
+- 261
+- 328
+- 267
+- 444
+- 331
+- 500
+- 487
+- 449
+- 193
+- 411
+- 465
+- 482
+- 302
+- 417
+- 362
+- 381
+- 587
+- 381
+- 466
+- 567
+- 406
+- 458
+ground_truth:
+  mean: 426.5
+  std: 90.3
+  Ppk: 0.641
+  Pp: 0.665
+  expected_ppm_out_of_spec: 46684.0
+  capable_at_1_33: false
+  observed_out_of_spec: 2
+  baseline_sigma_level: 3.14
+expected_findings:
+- 'Process is NOT capable: Ppk is far below the 1.33 threshold (and below 1.0).'
+- The stakeholder's Ppk ~ 1.5 claim is contradicted by the data.
+- A material share of calls fall outside the 240-600s specification.

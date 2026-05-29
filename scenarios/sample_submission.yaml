@@ -1,0 +1,14 @@
+# A learner's Measure-phase analysis. The --demo run grades this.
+# Edit it (or answer interactively with `make run`) to see the grade change.
+ppk: 0.6
+capable: false
+baseline_sigma: 3.1
+challenged_claim: true
+notes: >
+  I wrote a data collection plan with operational definitions for the call
+  start and stop events and sampled across operators and shifts. I did not run a
+  full Gage R&R yet, but I flagged measurement system risk before baselining.
+  Computing overall capability gives a Ppk of about 0.6 — well below the 1.33
+  threshold — so the process is not capable. Maria's Ppk ~ 1.5 claim is not
+  supported by this sample; roughly 5% of calls breach the 600-second limit.
+  The baseline works out to about 3.1 sigma.
