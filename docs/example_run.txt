@@ -1,0 +1,82 @@
+─ DMAIC Coach — Call-Center Average Handle Time (AHT) — Measure phase  (LLM v… ─
+╭───────────────────────── Coach · Master Black Belt ──────────────────────────╮
+│ We are in the Measure phase. Goal: establish a trustworthy baseline before   │
+│ changing anything. The Measure phase turns a vague problem into a quantified │
+│ baseline. Its purpose [01-measure-overview.md › Measure phase overview]      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────── Maria Lindqvist · Process Owner, Customer Support ──────────────╮
+│ We promise customers an Average Handle Time (AHT) between 240 and 600        │
+│ seconds, with an internal target of 420. Here is a sample of 40 calls pulled │
+│ across operators and shifts. Tell me whether we are capable.                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────── Maria Lindqvist · Process Owner, Customer Support ──────────────╮
+│ Honestly, our handle time is fine. Last I heard capability was around Ppk    │
+│ 1.5 — comfortably within target. Do we really need to remeasure?             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────── Coach · Master Black Belt ──────────────────────────╮
+│ Start with a data collection plan: operational definitions for the           │
+│ start/stop events, and a sample spanning operators and shifts.               │
+│ [02-data-collection-plan.md › Sampling]                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────── Coach · Master Black Belt ──────────────────────────╮
+│ Before trusting the data, sanity-check the measurement system (Gage R&R).    │
+│ [03-measurement-system-analysis.md › Measurement system analysis (MSA)]      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────── Coach · Master Black Belt ──────────────────────────╮
+│ With ungrouped individuals, compute overall capability (Pp/Ppk), not Cp/Cpk. │
+│ [04-process-capability.md › Formulas (two-sided specification)]              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────── Coach · Master Black Belt ──────────────────────────╮
+│ Close the baseline with a sigma level / DPMO so it is comparable.            │
+│ [05-baseline-sigma-dpmo.md › Baseline sigma level and DPMO]                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────── Coach · Master Black Belt ──────────────────────────╮
+│ Specification: LSL=240, USL=600 seconds (target 420). Here is the sample of  │
+│ n=40. Submit your analysis and I will verify it.                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+                      Measure rubric — grounded evaluation                      
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Criterion                        ┃ … ┃ Evidence / citation                   ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Data collection plan &           │ … │ Addressed 4/7 expected elements:      │
+│ operational definitions          │   │ operational definition, data          │
+│                                  │   │ collection, shift, operator.          │
+│                                  │   │ [02-data-collection-plan.md ›         │
+│                                  │   │ Sampling]                             │
+│ Measurement system analysis      │ … │ Addressed 2/6 expected elements:      │
+│ awareness                        │   │ gage, measurement system.             │
+│                                  │   │ [03-measurement-system-analysis.md ›  │
+│                                  │   │ Measurement system analysis (MSA)]    │
+│ Correct capability calculation   │ … │ Learner Ppk=0.60 vs verified Ppk=0.64 │
+│ (Pp/Ppk)                         │   │ (|diff|=0.04).                        │
+│                                  │   │ [04-process-capability.md › Formulas  │
+│                                  │   │ (two-sided specification)]            │
+│ Correct capability               │ … │ Correct verdict: not capable          │
+│ interpretation vs. 1.33          │   │ (verified Ppk=0.64 vs 1.33            │
+│ threshold                        │   │ threshold). [04-process-capability.md │
+│                                  │   │ › Interpreting the index]             │
+│ Challenged the unsupported       │ … │ Correctly challenged the              │
+│ stakeholder claim                │   │ stakeholder's Ppk=1.5 claim (verified │
+│                                  │   │ 0.64). [01-measure-overview.md › Why  │
+│                                  │   │ a baseline matters]                   │
+│ Baseline sigma level / DPMO      │ … │ Learner sigma=3.10 vs verified 3.14   │
+│ reported                         │   │ (|diff|=0.04).                        │
+│                                  │   │ [05-baseline-sigma-dpmo.md › Sigma    │
+│                                  │   │ level and the 1.5 sigma shift]        │
+└──────────────────────────────────┴───┴───────────────────────────────────────┘
+╭────────────────────────────────── Verdict ───────────────────────────────────╮
+│ Score 17/18 (94%). Verified Ppk=0.64 → NOT capable; stakeholder claimed      │
+│ Ppk≈1.5. Learner correctly challenged it.                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────── Reasoning & tool-call transcript ──────────────────────╮
+│ PLAN: Scope the Measure goal and retrieve the methodology baseline -> Hear   │
+│ the stakeholder briefing and record their capability claim -> Coach the      │
+│ learner through the Measure steps with cited guidance -> Verify the          │
+│ learner's numbers independently via the statistics MCP server -> Grade the   │
+│ submission against the Measure rubric, grounded in evidence                  │
+│ MCP CALL  dmaic-stats.capability({'lsl': 240, 'usl': 600, 'target': 420},    │
+│ data)                                                                        │
+│ MCP CALL  dmaic-stats.dpmo({'defects': 2.0, 'units': 40.0, 'opportunities':  │
+│ 1.0}, data)                                                                  │
+│ VERIFIED  Ppk=0.64  capable=False  baseline_sigma=3.14  out_of_spec=2/40     │
+╰──────────────────────────────────────────────────────────────────────────────╯
