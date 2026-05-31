@@ -60,6 +60,10 @@ pip install -e ".[dev]"      # mcp, numpy, scipy, pyyaml, rich, pytest
 make demo                    # deterministic scripted session — no key needed
 ```
 
+> **Run from a local filesystem.** The vector index is a SQLite file. On some
+> network mounts SQLite locking is unavailable; clone the repo to a local folder,
+> or set `DMAIC_DB_PATH=/tmp/kb.db` to place the index elsewhere.
+
 `make demo` indexes the knowledge base and runs a full scripted session. For an
 interactive session where you submit your own analysis:
 

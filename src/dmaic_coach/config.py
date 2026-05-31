@@ -6,7 +6,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 KB_DIR = ROOT / "knowledge_base"
-DB_PATH = ROOT / "kb.db"
+# kb.db lives next to the repo by default. Override with DMAIC_DB_PATH if the
+# working directory is on a filesystem without SQLite locking (e.g. some network
+# mounts) — point it at a local path instead.
+DB_PATH = Path(os.getenv("DMAIC_DB_PATH", str(ROOT / "kb.db")))
 SCENARIO = ROOT / "scenarios" / "call_center_aht.yaml"
 RUBRIC = ROOT / "rubric" / "measure_rubric.yaml"
 
